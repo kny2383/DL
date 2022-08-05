@@ -19,18 +19,21 @@ b = 0 # 절편
 
 lr = 0.03 # 학습률
 
-#몇 번 반복될지 설정
+# 몇 번 반복될지 설정
 epochs = 2001
 
 n = len(x)
 
+# 경사하강법 실행
 for i in range(epochs):
-    y_pred = a * x + b
+    y_pred = a * x + b # y의 예측값
     error = y - y_pred
 
+    # 오차함수를 미분 수행
     a_diff = (2/n) * sum(-x * (error))
     b_diff = (2/n) * sum(-(error))
 
+    # 기울기와 절편에 미분한 값을 적용
     a = a - lr * a_diff
     b = b - lr * b_diff
     
